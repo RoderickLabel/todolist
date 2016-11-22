@@ -1,0 +1,14 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+{% block title %}AppBundle:Task:view{% endblock %}
+
+{% block body %}
+
+<h1>Visualizar Task</h1>
+<p>Título: {{ task.title }}</p>
+<p>Descrição: {{ task.description }}</p>
+
+<a href="{{ path('edit_task',{'id': task.id} ) }}" class="btn btn-default">Editar</a>
+<a href="{{ path('delete_task', {'id' : task.id }) }}" class="btn btn-default">Excluir</a>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "AppBundle:Layout:layout.html.twig" %}
+
+{% block title %}AppBundle:Task:list{% endblock %}
+
+{% block body %}
+<h1>Listagem de tarefas</h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td><a href="{{ path('view_task',{ 'id': task.id }) }}">Visualizar</a></td>
+        </tr>    
+    {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('form_task') }}" class="btn btn-default">+ Novo</a>
+{% endblock %}

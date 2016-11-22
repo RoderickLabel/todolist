@@ -7,13 +7,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Task;
+use AppBundle\Repository\TaskRepository;
 
 
 /**
-     * @Route("/task")
-     */
+ * @Route("/task")
+ */
 class TaskController extends Controller
 {
+
+    protected $taskRepository;
+
+    public function __construct(TaskRepository $taskRepository)
+    {
+        $this->taskRepository = $taskRepository;
+    }
+
     /**
      * @Route("/list", name="list_task")
      */
